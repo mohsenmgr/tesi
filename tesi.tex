@@ -1,0 +1,101 @@
+\documentclass[12pt,a4paper,oneside,openright]{report}
+
+\usepackage{graphicx}
+\graphicspath{ {pictures/}}
+\usepackage{epstopdf}
+\usepackage{scrextend}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{afterpage}
+\usepackage{amsmath,amssymb}            
+\usepackage{rotating}  
+\usepackage{fancyhdr}  
+\usepackage{caption} 
+%\usepackage{minted}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{commath}
+\usepackage{gensymb}
+
+\usepackage{float}
+\usepackage{verbatim}
+\usepackage[english,italian]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{csquotes}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[
+backend=biber, %bibtex, .aux
+style=numeric,
+sorting=none,
+defernumbers=true
+]{biblatex}
+\usepackage{hyperref}
+\usepackage{rotating}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage[titletoc]{appendix}
+
+\bibliography{bibliography}
+
+\addbibresource{bibliography.bib}
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \normalsize
+    \setlength\abovedisplayskip{20pt}
+    \setlength\belowdisplayskip{20pt}
+    \setlength\abovedisplayshortskip{6pt}
+    \setlength\belowdisplayshortskip{20pt}
+}
+
+\emergencystretch=1em
+
+\addto\captionsitalian{
+  \renewcommand{\contentsname}%
+    {Index}%
+}
+
+
+\begin{document}
+
+\renewcommand{\listfigurename}{List of figures}
+\renewcommand{\listtablename}{List of tables}
+\linespread{1.25}
+\include{title}
+\newpage\null\thispagestyle{empty}\newpage
+\include{dedica}
+\selectlanguage{italian}
+\pagenumbering{gobble}
+\include{acknowledgements}
+\selectlanguage{english}
+
+
+\pagenumbering{gobble}
+\tableofcontents
+\listoffigures
+\listoftables
+
+\newpage
+\pagenumbering{roman}
+\selectlanguage{italian}
+\include{sommario}
+\selectlanguage{english}
+\include{abstract}
+
+\pagenumbering{arabic}
+\include{chapter1}
+\include{chapter2}
+\include{chapter3}
+\include{chapter4}
+\include{chapter5}
+
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\printbibliography[title={Bibliography}]
+%\clearpage
+%\addcontentsline{toc}{chapter}{Pictures source}
+%\printbibliography[keyword={picture},title={Pictures source},resetnumbers=true]
+
+
+\end{document}
